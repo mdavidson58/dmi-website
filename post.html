@@ -3,11 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog | CogniWerks</title>
+  <title>Blog | CogniaWerks</title>
+  <meta name="description" content="Articles on manufacturing intelligence, industrial AI, quality and plant-local architecture from CogniaWerks.">
+  <link rel="canonical" href="https://www.cogniawerks.com/post.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b2a55">
+  <meta property="og:site_name" content="CogniaWerks">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Blog | CogniaWerks">
+  <meta property="og:description" content="Articles on manufacturing intelligence, industrial AI, quality and plant-local architecture from CogniaWerks.">
+  <meta property="og:url" content="https://www.cogniawerks.com/post.html">
+  <meta property="og:image" content="https://www.cogniawerks.com/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog | CogniaWerks">
+  <meta name="twitter:description" content="Articles on manufacturing intelligence, industrial AI, quality and plant-local architecture from CogniaWerks.">
+  <meta name="twitter:image" content="https://www.cogniawerks.com/assets/og-image.jpg">
+  <script src="js/analytics.js?v=202610160047"></script>
   <link rel="icon" href="assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=202610160048">
 </head>
 <body>
 <div id="site-header"></div>
@@ -23,18 +38,46 @@
   </section>
 </main>
 <div id="site-footer"></div>
-<script src="js/site.js"></script>
-<script src="js/posts.js"></script>
+<script src="js/site.js?v=202610160855"></script>
+<script src="js/posts.js?v=202610160845"></script>
 <script>
   const id = new URLSearchParams(location.search).get("id");
   const post = POSTS.find(p => p.id === id) || POSTS[0];
-  document.title = post.title + " | CogniWerks Blog";
+  document.title = post.title + " | CogniaWerks Blog";
+  (function seo() {
+    const base = "https://www.cogniawerks.com/";
+    const url = base + "post.html?id=" + post.id;
+    const img = base + (post.image || "assets/og-image.jpg");
+    const desc = post.excerpt.length > 160 ? post.excerpt.slice(0, 157).replace(/\s+\S*$/, "") + "…" : post.excerpt;
+    const set = (sel, attr, val) => { const el = document.querySelector(sel); if (el) el.setAttribute(attr, val); };
+    set('meta[name="description"]', "content", desc);
+    set('link[rel="canonical"]', "href", url);
+    set('meta[property="og:title"]', "content", post.title);
+    set('meta[property="og:description"]', "content", desc);
+    set('meta[property="og:url"]', "content", url);
+    set('meta[property="og:image"]', "content", img);
+    set('meta[name="twitter:title"]', "content", post.title);
+    set('meta[name="twitter:description"]', "content", desc);
+    set('meta[name="twitter:image"]', "content", img);
+    const ld = document.createElement("script");
+    ld.type = "application/ld+json";
+    const author = post.author.startsWith("[") ? "CogniaWerks" : post.author.split(",")[0];
+    ld.textContent = JSON.stringify({
+      "@context": "https://schema.org", "@type": "BlogPosting",
+      headline: post.title, description: post.excerpt, image: img, url,
+      datePublished: post.date, dateModified: post.date,
+      author: { "@type": author === "CogniaWerks" ? "Organization" : "Person", name: author },
+      publisher: { "@type": "Organization", name: "CogniaWerks", logo: { "@type": "ImageObject", url: base + "assets/logo.png" } },
+      mainEntityOfPage: url, articleSection: post.category,
+    });
+    document.head.appendChild(ld);
+  })();
   document.getElementById("article").innerHTML = `
     <a href="blog.html" style="font-weight:600">← All articles</a>
     <div class="post-meta" style="margin-top:22px"><span class="cat">${post.category}</span><span>${fmtDate(post.date)}</span><span>${post.readTime}</span></div>
     <h1 style="font-size:clamp(1.8rem,3.6vw,2.6rem)">${post.title}</h1>
-    <p style="color:var(--muted)">By <span class="placeholder">${post.author}</span></p>
-    <div class="thumb">${postArt(post.art)}</div>
+    <p style="color:var(--muted)">By ${post.author.startsWith("[") ? `<span class="placeholder">${post.author}</span>` : post.author}</p>
+    <div class="thumb">${post.image ? `<img src="${post.image}" alt="">` : postArt(post.art)}</div>
     ${post.body}
     <div class="cta-band" style="margin-top:48px;padding:34px">
       <div><h2 style="font-size:1.5rem">See DMI on your process</h2><p>Book a tailored walkthrough with our team.</p></div>
