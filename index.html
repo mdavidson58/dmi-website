@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CogniWerks | Distributed Manufacturing Intelligence</title>
+  <meta name="description" content="CogniWerks DMI is an industrial AI platform that provides a unified, plant-local intelligence layer across manufacturing operations.">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Distributed Manufacturing Intelligence</span>
+        <h1>Know what happened on your line, why it happened, and what to do next.</h1>
+        <p class="lead">DMI is an industrial AI platform that unifies data from your equipment, plant systems and technical documents into one intelligence layer. It runs inside your plant, alongside the systems you already have.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="contact.html#demo">Request a Demo →</a>
+          <a class="btn btn-outline" href="product.html">Explore the Product</a>
+        </div>
+      </div>
+      <!-- Hero graphic: plant systems → DMI → insights -->
+      <div class="figure" aria-label="Diagram: plant data flows into DMI which produces insights">
+        <svg viewBox="0 0 520 400" role="img">
+          <title>Plant systems feed the DMI intelligence layer</title>
+          <defs>
+            <linearGradient id="hub" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b2a55"/><stop offset="1" stop-color="#1e88e5"/></linearGradient>
+          </defs>
+          <!-- sources -->
+          <g font-family="Inter" font-size="12" font-weight="600" fill="#0b2a55">
+            <g transform="translate(10 30)"><rect width="120" height="40" rx="10" fill="#e8f2fd"/><text x="60" y="25" text-anchor="middle">Machines &amp; PLCs</text></g>
+            <g transform="translate(10 95)"><rect width="120" height="40" rx="10" fill="#e8f2fd"/><text x="60" y="25" text-anchor="middle">Historian / SCADA</text></g>
+            <g transform="translate(10 160)"><rect width="120" height="40" rx="10" fill="#e8f2fd"/><text x="60" y="25" text-anchor="middle">MES / ERP</text></g>
+            <g transform="translate(10 225)"><rect width="120" height="40" rx="10" fill="#e8f2fd"/><text x="60" y="25" text-anchor="middle">QMS / LIMS</text></g>
+            <g transform="translate(10 290)"><rect width="120" height="40" rx="10" fill="#e8f2fd"/><text x="60" y="25" text-anchor="middle">CMMS / EAM</text></g>
+            <g transform="translate(10 355)"><rect width="120" height="40" rx="10" fill="#eef8e7"/><text x="60" y="25" text-anchor="middle" fill="#2f6e12">SOPs &amp; Manuals</text></g>
+          </g>
+          <g stroke="#1e88e5" stroke-width="2" fill="none" class="flow">
+            <path d="M130 50 C175 50 170 200 205 200"/><path d="M130 115 C170 115 170 200 205 200"/><path d="M130 180 C165 180 170 200 205 200"/>
+            <path d="M130 245 C165 245 170 200 205 200"/><path d="M130 310 C170 310 170 200 205 200"/><path d="M130 375 C175 375 170 200 205 200" stroke="#6cbf3c"/>
+          </g>
+          <!-- hub -->
+          <circle cx="270" cy="200" r="78" fill="#e8f2fd" class="pulse"/>
+          <circle cx="270" cy="200" r="64" fill="url(#hub)"/>
+          <g stroke="#8fd16a" stroke-width="2"><line x1="250" y1="180" x2="290" y2="172"/><line x1="290" y1="172" x2="292" y2="214"/><line x1="250" y1="180" x2="256" y2="222"/><line x1="256" y1="222" x2="292" y2="214"/></g>
+          <g fill="#fff"><circle cx="250" cy="180" r="6"/><circle cx="290" cy="172" r="6"/><circle cx="292" cy="214" r="6"/><circle cx="256" cy="222" r="6" fill="#8fd16a"/></g>
+          <text x="270" y="155" text-anchor="middle" fill="#fff" font-family="Montserrat" font-weight="800" font-size="17">DMI</text>
+          <text x="270" y="250" text-anchor="middle" fill="#cfe0f6" font-family="Inter" font-size="10">plant-local AI</text>
+          <!-- outputs -->
+          <g stroke="#6cbf3c" stroke-width="2" fill="none" class="flow"><path d="M336 200 C370 200 370 90 395 90"/><path d="M336 200 H395"/><path d="M336 200 C370 200 370 310 395 310"/></g>
+          <g font-family="Inter" font-size="12" font-weight="600" fill="#fff">
+            <g transform="translate(395 68)"><rect width="118" height="44" rx="10" fill="#0b2a55"/><text x="59" y="20" text-anchor="middle">Root cause</text><text x="59" y="35" text-anchor="middle" font-weight="400" font-size="10" fill="#a9c0e0">why it happened</text></g>
+            <g transform="translate(395 178)"><rect width="118" height="44" rx="10" fill="#1e88e5"/><text x="59" y="20" text-anchor="middle">Answers</text><text x="59" y="35" text-anchor="middle" font-weight="400" font-size="10" fill="#e3f0ff">in plain language</text></g>
+            <g transform="translate(395 288)"><rect width="118" height="44" rx="10" fill="#6cbf3c"/><text x="59" y="20" text-anchor="middle">Next actions</text><text x="59" y="35" text-anchor="middle" font-weight="400" font-size="10" fill="#effbe6">recommended</text></g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problems -->
+  <section class="section alt">
+    <div class="container">
+      <div class="center">
+        <span class="eyebrow">The problem</span>
+        <h2>Manufacturers have plenty of data. Getting answers from it is slow.</h2>
+        <p class="lead">The information needed to explain a quality issue or an unplanned stop usually exists. It's spread across systems that don't connect, so investigations take days of manual work.</p>
+      </div>
+      <div class="grid grid-3" style="margin-top:44px">
+        <div class="card problem">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7" stroke-dasharray="2 2"/></svg></div>
+          <h3>Fragmented systems</h3>
+          <p>Process data, batch context, quality records, maintenance history and documents each sit in a different system with different names.</p>
+        </div>
+        <div class="card problem">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>Slow root-cause analysis</h3>
+          <p>Engineers spend hours pulling exports and building spreadsheets, and the problem often recurs before the investigation is finished.</p>
+        </div>
+        <div class="card problem">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 4 8-9"/><path d="M3 12l3-3 3 4 3-6 3 5 3-2 3 3" opacity=".5"/></svg></div>
+          <h3>Reacting to noise</h3>
+          <p>Trends show that a value moved, not whether the process changed. Teams end up adjusting stable processes and missing real signals.</p>
+        </div>
+        <div class="card problem">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V3H6.5A2.5 2.5 0 004 5.5z"/><path d="M4 19.5A2.5 2.5 0 006.5 22H20v-5"/></svg></div>
+          <h3>Tribal knowledge</h3>
+          <p>Troubleshooting know-how lives in manuals nobody can find and in the heads of experienced staff who are approaching retirement.</p>
+        </div>
+        <div class="card problem">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19a4.5 4.5 0 100-9h-1.8A7 7 0 104 16.3"/><path d="M3 3l18 18"/></svg></div>
+          <h3>Cloud constraints</h3>
+          <p>Sending every tag to the cloud is costly and slow, and it's often prohibited by IP, regulatory or security requirements.</p>
+        </div>
+        <div class="card problem">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l5 3V8l5 3V4h4v17"/></svg></div>
+          <h3>Rip-and-replace fatigue</h3>
+          <p>New platforms often require replacing systems that work fine. Plants need intelligence on top of what they already run.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How we solve it (summary) -->
+  <section class="section">
+    <div class="container split">
+      <div>
+        <span class="eyebrow">How we solve it</span>
+        <h2>One intelligence layer across your whole operation</h2>
+        <p class="lead">DMI connects to your existing systems, builds a process-aware model of your plant, and applies statistics and AI on top of it. Your data stays in the plant.</p>
+        <ul class="check-list" style="margin-top:22px">
+          <li><strong>Works with what you have:</strong> MES, QMS, LIMS, CMMS, ERP, historians, SCADA, PLCs, OPC UA and MQTT.</li>
+          <li><strong>Process-aware:</strong> a single ISA-95-aligned map of your plant lets analysis follow cause and effect upstream and downstream.</li>
+          <li><strong>Plant-local AI:</strong> core intelligence runs on site, so it keeps working without Internet access and your data stays under your control.</li>
+          <li><strong>Human in the loop:</strong> DMI shows its evidence and recommends actions. Your engineers make the decisions.</li>
+        </ul>
+        <div class="btn-row"><a class="btn btn-primary" href="solutions.html">See how it works →</a></div>
+      </div>
+      <div class="steps" style="grid-template-columns:1fr 1fr">
+        <div class="step"><h3>Connect</h3><p>Discover equipment, tags and systems across sites without moving the data.</p></div>
+        <div class="step"><h3>Contextualize</h3><p>Build a unified namespace and process graph of your operation.</p></div>
+        <div class="step"><h3>Analyze</h3><p>Run SPC, root-cause analysis, OEE and anomaly detection along the process.</p></div>
+        <div class="step"><h3>Act</h3><p>Ask questions in plain language and get evidence-backed recommendations.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progression -->
+  <section class="section dark">
+    <div class="container">
+      <div class="center">
+        <span class="eyebrow">Product direction</span>
+        <h2>From process discovery to approved action</h2>
+        <p class="lead">DMI doesn't just automate predefined workflows. It understands manufacturing conditions, investigates problems, recommends responses and orchestrates the actions your team approves.</p>
+      </div>
+      <div class="progression" style="margin-top:40px">
+        <div class="stage now"><strong>Process Discovery</strong><span>Map the process</span></div>
+        <div class="stage now"><strong>Process Intelligence</strong><span>Understand behavior</span></div>
+        <div class="stage now"><strong>Root Cause Analysis</strong><span>Why it happened</span></div>
+        <div class="stage now"><strong>Decision Support</strong><span>What to do</span></div>
+        <div class="stage now"><strong>Process Automation</strong><span>Approved action</span></div>
+        <div class="stage next"><strong>Continuous Optimization</strong><span>Measure &amp; improve</span></div>
+      </div>
+      <div class="center" style="margin-top:30px"><a class="btn btn-light" href="automation.html">See how DMI automates →</a></div>
+    </div>
+  </section>
+
+  <!-- Industries teaser -->
+  <section class="section alt">
+    <div class="container">
+      <div class="center">
+        <span class="eyebrow">Industries</span>
+        <h2>Built for batch, continuous and discrete manufacturing</h2>
+        <p class="lead">DMI's process catalog covers dozens of manufacturing process types, from bioreactors to body shops.</p>
+      </div>
+      <div class="tags" style="justify-content:center;margin-top:30px">
+        <span class="tag">Pharma &amp; Biotech</span><span class="tag">Chemicals</span><span class="tag">Food &amp; Beverage</span>
+        <span class="tag">Automotive</span><span class="tag">Semiconductor &amp; Electronics</span><span class="tag">Aerospace &amp; Defense</span>
+        <span class="tag">Oil &amp; Gas</span><span class="tag">Metals &amp; Mining</span><span class="tag">Pulp &amp; Paper</span>
+        <span class="tag">Power &amp; Renewables</span><span class="tag">Water &amp; Wastewater</span><span class="tag">Plastics &amp; Packaging</span>
+      </div>
+      <div class="center" style="margin-top:30px"><a class="btn btn-outline" href="industries.html">View all industries</a></div>
+    </div>
+  </section>
+
+  <!-- Latest blog -->
+  <section class="section">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px;margin-bottom:32px">
+        <div><span class="eyebrow">From the blog</span><h2 style="margin:0">Insights for manufacturing leaders</h2></div>
+        <a href="blog.html" style="font-weight:600">All articles →</a>
+      </div>
+      <div class="grid grid-3" id="latest-posts"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="cta-band">
+        <div><h2>See DMI on your process</h2><p>Book a 30-minute walkthrough tailored to your plant and your systems.</p></div>
+        <a class="btn btn-light" href="contact.html#demo">Request a Demo →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/site.js"></script>
+<script src="js/posts.js"></script>
+<script>
+  document.getElementById("latest-posts").innerHTML = POSTS.slice(0, 3).map(postCard).join("");
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | CogniWerks</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+  <section class="section" style="padding-top:56px">
+    <div class="container"><article class="article" id="article"></article></div>
+  </section>
+  <section class="section alt">
+    <div class="container">
+      <h2 class="center">More from the blog</h2>
+      <div class="grid grid-3" id="more" style="margin-top:32px"></div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="js/site.js"></script>
+<script src="js/posts.js"></script>
+<script>
+  const id = new URLSearchParams(location.search).get("id");
+  const post = POSTS.find(p => p.id === id) || POSTS[0];
+  document.title = post.title + " | CogniWerks Blog";
+  document.getElementById("article").innerHTML = `
+    <a href="blog.html" style="font-weight:600">← All articles</a>
+    <div class="post-meta" style="margin-top:22px"><span class="cat">${post.category}</span><span>${fmtDate(post.date)}</span><span>${post.readTime}</span></div>
+    <h1 style="font-size:clamp(1.8rem,3.6vw,2.6rem)">${post.title}</h1>
+    <p style="color:var(--muted)">By <span class="placeholder">${post.author}</span></p>
+    <div class="thumb">${postArt(post.art)}</div>
+    ${post.body}
+    <div class="cta-band" style="margin-top:48px;padding:34px">
+      <div><h2 style="font-size:1.5rem">See DMI on your process</h2><p>Book a tailored walkthrough with our team.</p></div>
+      <a class="btn btn-light" href="contact.html#demo">Request a Demo →</a>
+    </div>`;
+  document.getElementById("more").innerHTML = POSTS.filter(p => p.id !== post.id).slice(0, 3).map(postCard).join("");
+</script>
+</body>
+</html>
