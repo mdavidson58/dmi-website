@@ -5,6 +5,73 @@
    ------------------------------------------------------------------ */
 const POSTS = [
   {
+    id: "process-aware-digital-twin",
+    title: "A Digital Twin of the Process, Not Just the Equipment: How DMI's Twin Works and Why It's Different",
+    category: "Industrial AI",
+    date: "2026-10-18",
+    author: "Mark Davidson, CEO",
+    readTime: "7 min read",
+    art: "graph",
+    excerpt: "Most digital twins are 3D models or physics simulations of a machine, built by specialists over months and often hosted in the cloud. DMI's twin is built from your plant's own process graph and live data, runs inside the plant, and tells you what a change will do downstream, and when you shouldn't make it at all.",
+    body: `
+      <p>"Digital twin" has become one of the most stretched terms in manufacturing. It can mean a photorealistic 3D model of a line, a physics simulation of a single pump, a CAD file linked to a maintenance record, or a dashboard with a picture of the plant behind it. Many of these are impressive. Few of them answer the question an engineer actually asks before touching a setpoint: <em>if I change this, what happens to everything after it, and is now the right time to do it?</em></p>
+      <p>DMI's digital twin was built to answer exactly that question. This article explains how it works and how it differs from the twins most manufacturers have seen.</p>
+
+      <h2>What most digital twins are</h2>
+      <p>Traditional digital twins tend to fall into three groups:</p>
+      <ul>
+        <li><strong>Visual twins.</strong> A 3D replica of the plant or a machine, often linked to live tag values. Good for orientation and training, but the picture doesn't know that the bioreactor feeds the harvest step, or that the filler can't run faster than the capper.</li>
+        <li><strong>Physics and engineering twins.</strong> First-principles or CFD models of a specific asset. Accurate for the thing they model, but each one takes specialists, months of calibration and ongoing upkeep, and it usually covers one machine rather than the process around it.</li>
+        <li><strong>Cloud data twins.</strong> A copy of the plant's data in a cloud platform, modelled there and analysed there. Every question means moving data out of the plant and paying for it again.</li>
+      </ul>
+      <p>All three model <em>things</em>. What they often miss is the <em>process</em>: the order of stages, which unit feeds which, where material transfers, and where one site ends and the next begins.</p>
+
+      <h2>DMI's twin starts with the process graph</h2>
+      <p>DMI builds its twin from the structure your plant already has. It discovers the databases, tables and tags on each <a href="https://anylog.network" target="_blank" rel="noopener">AnyLog</a> edge node, organises them into a reviewed unified namespace (enterprise, site, area, cell and tag), identifies the type of process (DMI's catalogue covers 29, from biopharmaceutical and brewing to automotive, semiconductor, drilling and water treatment), and generates a single ISA-95 process graph.</p>
+      <p>That graph is the twin. Its nodes are your real units and tags, bound to the tables that hold their readings. Its edges are process relationships such as <em>feeds into</em>, <em>transfers to</em>, <em>controls</em>, <em>cascades to</em> and <em>precedes</em>. It knows the order your process runs in and how material and control flow through it. And because a person reviews the namespace before the graph is generated, the twin describes the plant you actually have, not one a model imagined.</p>
+      <blockquote>A picture of the plant shows where things are. A process graph shows what happens next.</blockquote>
+
+      <h2>How a simulation runs</h2>
+      <p>On DMI's <strong>Simulation</strong> screen, you pick a unit (anything from a site down to a single tag), then name the parameter and the proposed new value. DMI then:</p>
+      <ol>
+        <li><strong>Starts from the live reading.</strong> If you don't enter a starting value, DMI queries the current value from the edge node that holds it. The baseline is the process as it is right now, not a design value.</li>
+        <li><strong>Finds the process that owns the change</strong> and walks the graph forward to every downstream stage it reaches, and backward to the stages that feed it.</li>
+        <li><strong>Projects the effect on each affected process</strong> from the live readings of its rate, flow, count, output and quality tags. Stages closer to the change take more of the move and later stages are damped, so the projection reflects how a real process absorbs a disturbance.</li>
+        <li><strong>Returns a verdict:</strong> the change is local, the downstream impact needs review, or <em>do not change now</em>. A critical verdict is raised, for example, when an outlet or transfer path is open and an altered material or state would be sent straight into the next stage.</li>
+      </ol>
+      <p>The result shows the current and simulated value of each affected metric, the change in each downstream process, and the graph relationships that connect them, so an engineer can see exactly why DMI reached its answer.</p>
+
+      <h2>Six ways DMI's twin is different</h2>
+
+      <h3>1. It models cause and effect, not just geometry</h3>
+      <p>Because the twin is a process graph, the same structure powers root-cause analysis (walking upstream to find what moved first) and simulation (walking downstream to see what a change will reach). One model serves both questions: <em>why did this happen?</em> and <em>what will happen if I do this?</em></p>
+
+      <h3>2. It stays inside the site boundary</h3>
+      <p>Many operations run parallel lines, rigs or sites with similar tag names. A naive model can mistake a sister line for a downstream effect. DMI's walks stay within the site the change belongs to, and an AI write-up that cites a unit outside that boundary is corrected. A parallel plant is never drafted in as a cause or an effect.</p>
+
+      <h3>3. It knows when not to predict</h3>
+      <p>DMI follows the quality principles of W. Edwards Deming and Walter Shewhart. A simulation is a prediction, and a prediction is only meaningful when the process is stable. If SPC shows a special cause, the process is still changing, and a simulated delta describes a process you don't have. That's why DMI's method puts Simulate after Observe, Investigate, Explain and Recommend: stabilise first, then predict. Most twins will simulate anything you ask; DMI is designed to tell you when to hold the change.</p>
+
+      <h3>4. The graph decides; the AI only explains</h3>
+      <p>DMI's edge language model writes a plain-language briefing of each simulation, but it can't change the numbers. It can't invent a delta, add a graph edge or soften a critical verdict: if the graph says <em>do not change now</em>, the briefing says so too. The process graph is the authority, and the AI is the narrator.</p>
+
+      <h3>5. It runs inside the plant</h3>
+      <p>The twin, the live readings, the simulation and the language model all run next to the machines on the AnyLog edge data fabric. Process data doesn't have to leave the site, the twin keeps working without Internet access, and running a simulation a hundred times costs the same as running it once. There is no per-query cloud bill.</p>
+
+      <h3>6. It's ready in days, not a modelling project</h3>
+      <p>There's no CAD import, no physics calibration and no separate twin-building project. The twin is generated from the namespace and data you already have. If your process changes, you review the namespace and generate the graph again.</p>
+
+      <h2>From simulation to action, and back</h2>
+      <p>A twin is only valuable if it changes what happens on the floor. In DMI, the latest simulation is available as a finding when you raise a business process automation workflow. The team reviews the evidence and the simulated outcome, a person approves the change, and it runs as a DMI work order, a Microsoft Teams card or a Power Automate flow. Afterwards, DMI compares before-and-after readings to measure whether the change delivered, and records the result in the savings register. The prediction is checked against what actually happened.</p>
+
+      <h2>Being clear about what it is</h2>
+      <p>DMI's twin is a process-level decision-support model, not a first-principles physics simulator. Its projections come from live readings, process relationships and transparent propagation rules, so engineers can see and question every step. If you have a CFD model of a heat exchanger, keep it. DMI complements those tools by answering the question they don't: what a change will do to the rest of the process, and whether this is the moment to make it.</p>
+
+      <h2>See it on your process</h2>
+      <p>Pick a line where setpoint changes have caused surprises downstream. Connect its data in place, let DMI build the process graph, and simulate the change before you make it. If you'd like to see it on a process like yours, request a demo.</p>
+    `,
+  },
+  {
     id: "dmi-for-industrial-integrators",
     title: "For Industrial Integrators: Deliver Industrial AI to Your Customers, Under Your Own Brand",
     category: "Partners",
