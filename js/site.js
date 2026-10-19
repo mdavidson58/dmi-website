@@ -68,7 +68,7 @@ function renderFooter() {
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li></ul></div>
         <div><h4>Get in touch</h4><ul>
-          <li>Sales: <a href="mailto:${SITE.salesEmail}">${SITE.salesEmail}</a></li>
+          <li><a href="contact.html#contact">Contact us</a></li>
           <li>Support: <a href="mailto:${SITE.email}">${SITE.email}</a></li>
           <li><a href="tel:${SITE.phone.replace(/[^\d+]/g, "")}">${SITE.phone}</a></li>
           <li>${SITE.address}</li>
